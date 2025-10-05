@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/nishatrhythm/nishatrhythm/main/public/icon.png" alt="Train Seat Logo" width="100" />
+<img src="/icon.png" alt="Train Seat Logo" width="100" />
 
 **Your Ultimate Companion for Bangladesh Railway Journey Planning**
 
