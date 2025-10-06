@@ -6,8 +6,8 @@
 
 **Your Ultimate Companion for Bangladesh Railway Journey Planning**
 
-[![Download APK](https://img.shields.io/badge/Download-APK-success?style=for-the-badge&logo=android)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.1.1/Train_Seat.apk)
-[![Version](https://img.shields.io/badge/Version-2.1.1-blue?style=for-the-badge)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.1.1/Train_Seat.apk)
+[![Download APK](https://img.shields.io/badge/Download-APK-success?style=for-the-badge&logo=android)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.2.0/Train_Seat.apk)
+[![Version](https://img.shields.io/badge/Version-2.2.0-blue?style=for-the-badge)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.2.0/Train_Seat.apk)
 
 </div>
 
@@ -24,17 +24,23 @@ Train Seat is a comprehensive mobile application designed to help passengers che
 
 ## What's New
 
-- Incorporated Train Seat Availability platform into the Android app
-- Fixed multiple bugs and improved overall performance
-- Fixed an important performance issue
-- .apk file size reduced by 40%
+**CHANGELOG [Oct 07, 2025]**
+- Fixed a critical issue where the authentication token was fetched for each request after the first app launch or when Android cleared the in-memory cache.
+- Fixed an issue where the token was cleared when the system cache was wiped — the token is now retained and reused without fetching a new one.
+- Fixed a double-tap bug where the first touch hid the keyboard and the second was required to interact with the screen.
+- Added pull-to-refresh functionality to reload existing data on the Seat Matrix and Seat Availability pages.
+- Added animation to the Account section in Settings when accessed via the “Go to Settings” button, improving user experience.
+- Added Terms and Conditions and Privacy Policy pages.
+- Improved minor UI and UX elements for a smoother experience.
+- Fixed several other bugs and made performance improvements.
+- Changed app icon
 
 [ **For detailed changelog and previous versions, visit:** [github.com/nishatrhythm/Train-Seat-App-Releases/releases](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases) ]
 
 ## App Information
 
-- **Version:** 2.1.1
-- **Current Version Release Date:** October 05, 2025
+- **Version:** 2.2.0
+- **Current Version Release Date:** October 07, 2025
 - **First Published:** September 29, 2025
 
 ## Feedback
