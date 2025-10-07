@@ -6,8 +6,8 @@
 
 **Your Ultimate Companion for Bangladesh Railway Journey Planning**
 
-[![Download APK](https://img.shields.io/badge/Download-APK-success?style=for-the-badge&logo=android)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.2.4/Train_Seat.apk)
-[![Version](https://img.shields.io/badge/Version-2.2.4-blue?style=for-the-badge)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.2.4/Train_Seat.apk)
+[![Download APK](https://img.shields.io/badge/Download-APK-success?style=for-the-badge&logo=android)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.2.5/Train_Seat.apk)
+[![Version](https://img.shields.io/badge/Version-2.2.5-blue?style=for-the-badge)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.2.5/Train_Seat.apk)
 
 </div>
 
@@ -26,13 +26,12 @@ Train Seat is a comprehensive mobile application designed to help passengers che
 
 **CHANGELOG [Oct 07, 2025]**
 - Minor bug fixes
-- Stability improvements
 
 [ **For detailed changelog and previous versions, visit:** [github.com/nishatrhythm/Train-Seat-App-Releases/releases](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases) ]
 
 ## App Information
 
-- **Version:** 2.2.4
+- **Version:** 2.2.5
 - **Current Version Release Date:** October 07, 2025
 - **First Published:** September 29, 2025
 
