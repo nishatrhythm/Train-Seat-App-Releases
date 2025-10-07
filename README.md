@@ -27,7 +27,6 @@ Train Seat is a comprehensive mobile application designed to help passengers che
 **CHANGELOG [Oct 07, 2025]**
 - Minor bug fixes and performance improvements
 - UI/UX enhancements for better user experience
-- Fixed update button bug
 - App icon slightly updated
 
 [ **For detailed changelog and previous versions, visit:** [github.com/nishatrhythm/Train-Seat-App-Releases/releases](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases) ]
