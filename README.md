@@ -39,7 +39,6 @@ Train Seat is a comprehensive mobile application designed to help passengers che
 ## Feedback
 
 - **Google Form:** [forms.gle/NV72PC1z75sq77tg7](https://forms.gle/NV72PC1z75sq77tg7)
-- **Telegram Group:** [t.me/+hHj05T-9BRZkZjU1](https://t.me/+hHj05T-9BRZkZjU1)
 
 ## Website
 
