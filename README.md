@@ -4,10 +4,10 @@
 
 <img src="/icon.png" alt="Train Seat Logo" width="100" />
 
-**Your Ultimate Companion for Bangladesh Railway Journey Planning**
+**Your Ultimate Companion for Bangladesh Railway Ticket Finder**
 
-[![Download APK](https://img.shields.io/badge/Download-APK-success?style=for-the-badge&logo=android)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.2.6/Train_Seat.apk)
-[![Version](https://img.shields.io/badge/Version-2.2.6-blue?style=for-the-badge)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.2.6/Train_Seat.apk)
+[![Download APK](https://img.shields.io/badge/Download-APK-success?style=for-the-badge&logo=android)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.2.8/Train_Seat.apk)
+[![Version](https://img.shields.io/badge/Version-2.2.8-blue?style=for-the-badge)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.2.8/Train_Seat.apk)
 
 </div>
 
@@ -25,14 +25,14 @@ Train Seat is a comprehensive mobile application designed to help passengers che
 ## What's New
 
 **CHANGELOG [Oct 08, 2025]**
-- Fixed an issue where the Seat Availability search page couldn’t scroll on devices with shorter screens
-- Fixed an issue where saving credentials occasionally triggered a verification error dialog
+- Improved error messages are now shown on the Seat Availability platform during and after data fetching, similar to the website.
+- - Better error handling in Availability and Matrix result pages
 
 [ **For detailed changelog and previous versions, visit:** [github.com/nishatrhythm/Train-Seat-App-Releases/releases](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases) ]
 
 ## App Information
 
-- **Version:** 2.2.6
+- **Version:** 2.2.8
 - **Current Version Release Date:** October 08, 2025
 - **First Published:** September 29, 2025
 
