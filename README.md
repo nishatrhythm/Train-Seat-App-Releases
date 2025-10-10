@@ -11,6 +11,8 @@
 
 </div>
 
+## [IMPORTANT: All of my services were broken since Shohoz added a verification method on the e-ticket login page. We are working to restore the Android app as soon as possible. Thank you for your patience.]
+
 ## About
 
 Train Seat is a comprehensive mobile application designed to help passengers check real-time train seat availability and access detailed seat matrix information for Bangladesh Railway. Whether you're planning a journey or checking last-minute availability, this app provides up-to-date information to make your travel planning easier and more convenient.
