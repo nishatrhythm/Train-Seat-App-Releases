@@ -11,7 +11,7 @@
 
 </div>
 
-## [IMPORTANT: All of my services were broken since Shohoz added a verification method on the e-ticket login page. We are working to restore the Android app as soon as possible. Thank you for your patience.]
+## [IMPORTANT: All of our services were broken since Shohoz added a verification method on the e-ticket login page. We are working to restore the Android app as soon as possible. Thank you for your patience.]
 
 ## About
 
