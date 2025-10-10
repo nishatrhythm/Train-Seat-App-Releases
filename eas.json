@@ -1,0 +1,39 @@
+{
+  "cli": {
+    "version": ">= 16.19.3",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production-optimized": {
+      "autoIncrement": true,
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease -PreactNativeArchitectures=armeabi-v7a,arm64-v8a",
+        "env": {
+          "NODE_ENV": "production",
+          "ANDROID_ENABLE_MINIFY": "true",
+          "ANDROID_ENABLE_SHRINK_RESOURCES": "true"
+        }
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "Train Seat",
+    "slug": "train-seat",
+    "version": "2.3.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "platforms": [
+      "android"
+    ],
+    "splash": {
+      "image": "./assets/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#f0f8f5"
+    },
+    "assetBundlePatterns": [
+      "assets/**",
+      "data/**"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#f0f8f5"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.nishatmahmud.trainseat",
+      "versionCode": 7,
+      "permissions": []
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2fef8f96-07c9-4b65-9541-52720105ffba"
+      }
+    }
+  }
+}
