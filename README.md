@@ -6,12 +6,10 @@
 
 **Your Ultimate Companion for Bangladesh Railway Ticket Finder**
 
-[![Download APK](https://img.shields.io/badge/Download-APK-success?style=for-the-badge&logo=android)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.2.9/Train_Seat.apk)
-[![Version](https://img.shields.io/badge/Version-2.2.9-blue?style=for-the-badge)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.2.9/Train_Seat.apk)
+[![Download APK](https://img.shields.io/badge/Download-APK-success?style=for-the-badge&logo=android)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.3.0/Train_Seat.apk)
+[![Version](https://img.shields.io/badge/Version-2.3.0-blue?style=for-the-badge)](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases/download/v2.3.0/Train_Seat.apk)
 
 </div>
-
-## [IMPORTANT: All of our services were broken since Shohoz added a verification method on the e-ticket login page. We are working to restore the Android app as soon as possible. Thank you for your patience.]
 
 ## About
 
@@ -23,18 +21,20 @@ Train Seat is a comprehensive mobile application designed to help passengers che
 - ARM 32-bit (armeabi-v7a) or ARM 64-bit (arm64-v8a)
 - 50 MB storage
 - Internet connection
+- Account credentials (Auth Token and Device Key) to fetch data
 
 ## What's New
 
-**CHANGELOG [Oct 08, 2025]**
-- Improved user experience in Seat Availability result page
+**CHANGELOG [Oct 10, 2025]**
+- **Fixed:** All services were broken after the e-Ticket platform introduced a verification method on the login page.
+- **Update:** Data fetching now requires an auth token and device key.
 
 [ **For detailed changelog and previous versions, visit:** [github.com/nishatrhythm/Train-Seat-App-Releases/releases](https://github.com/nishatrhythm/Train-Seat-App-Releases/releases) ]
 
 ## App Information
 
-- **Version:** 2.2.9
-- **Current Version Release Date:** October 08, 2025
+- **Version:** 2.3.0
+- **Current Version Release Date:** October 10, 2025
 - **First Published:** September 29, 2025
 
 ## Feedback
@@ -47,16 +47,8 @@ Train Seat is a comprehensive mobile application designed to help passengers che
 - **Train Seat Availability:** [trainseat.onrender.com](https://trainseat.onrender.com)
 - **Train Seat Report:** [trainreport.onrender.com](https://trainreport.onrender.com)
 
-## Important Notice: Why a Railway Account is Needed in Train Seat App
+## Important: Why Railway Credentials are Needed in Train Seat App
 
-> When you search on the e-ticket website or the Rail Sheba app, you must be signed in with your railway account. Technically, this is required because the railway server checks whether you are an authorised user before allowing access to the data. Without an account, no information can be fetched from the official server.
->
-> For our web services (seat.onrender.com, trainseat.onrender.com, trainreport.onrender.com), three accounts are already configured on our hosting platform (render.com). Since all user requests go through our back-end system, you do not need to use your own railway account when accessing these sites. However, if you want to run these websites locally on your own system, you will need to set up your own railway account credentials in the project.
->
-> The Train Seat mobile app works differently. It is not connected to our back-end system. Instead, your mobile device itself acts like the back-end system. In simple words, the app processes everything directly on your phone, not on any external server. That is why saving your railway account in the app is required.
->
-> The mobile app fetches the authorisation token directly from the official railway server. We are not a middleman in this process, and we do not send your mobile number or password to any external server. The credentials you save in the app remain stored only on your device, and you can delete them at any time.
->
-> If you still feel unsure, you may change your original railway account password first and then use the new one in the Train Seat app. If you are still not comfortable, we advise you not to use the mobile version. However, please note that we make every effort to securely store your credentials on your device, and protecting your data privacy is our top priority.
+> When you search on the e-ticket website or the Rail Sheba app, you must be signed in with your railway credentials. Technically, this is required because the railway server checks whether you are an authorised user before allowing access to the data. Without valid credentials, no information can be fetched from the official server.
 
 </div>
