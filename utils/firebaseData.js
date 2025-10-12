@@ -193,3 +193,37 @@ export const clearCache = async () => {
     console.error('Error clearing cache:', error);
   }
 };
+
+/**
+ * Get app configuration from Firebase (e.g., weekday validation settings)
+ * @returns {Promise<Object>} - Configuration object
+ */
+export const getAppConfig = async () => {
+  try {
+    console.log('Fetching app configuration from Firebase...');
+    const configRef = ref(database, 'appUpdate');
+    const snapshot = await get(configRef);
+    
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+      
+      // Return configuration with default values
+      return {
+        enableWeekdayValidation: data.enableWeekdayValidation !== undefined ? data.enableWeekdayValidation : true,
+        // Add other config values as needed
+      };
+    } else {
+      console.log('No app configuration found in Firebase, using defaults');
+      // Return default configuration
+      return {
+        enableWeekdayValidation: true,
+      };
+    }
+  } catch (error) {
+    console.error('Error fetching app configuration:', error);
+    // Return default configuration on error
+    return {
+      enableWeekdayValidation: true,
+    };
+  }
+};

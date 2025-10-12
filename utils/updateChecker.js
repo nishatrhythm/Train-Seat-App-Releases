@@ -46,7 +46,7 @@ export const checkForUpdate = async (forceCheck = false) => {
   updateCheckInProgress = true;
   try {
     // Get current app version from app.json (for both Expo Go and standalone builds)
-    const currentVersion = Constants.expoConfig?.version || Application.nativeApplicationVersion || '2.3.0';
+    const currentVersion = Constants.expoConfig?.version || Application.nativeApplicationVersion || '2.4.0';
     
     console.log('Current app version:', currentVersion);
     
@@ -88,7 +88,7 @@ export const checkForUpdate = async (forceCheck = false) => {
         forceUpdate: isForceUpdate,
         latestVersion,
         currentVersion,
-        updateUrl: updateUrl || 'https://gist.github.com/nishatrhythm/b462e53062f32017fcc0c7c218898cde',
+        updateUrl: updateUrl || 'https://www.github.com/nishatrhythm/Train-Seat-App-Releases',
         message: message || 'A new version of the app is available. Please update to get the latest features and improvements.',
       };
 

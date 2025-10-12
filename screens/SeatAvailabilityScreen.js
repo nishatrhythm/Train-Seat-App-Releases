@@ -445,10 +445,10 @@ export default function SeatAvailabilityScreen() {
       let isCredError = false;
       
       if (error.message === 'AUTH_TOKEN_EXPIRED') {
-        displayMessage = 'Your Auth Token has expired or is invalid. Please update your credentials in Settings.';
+        displayMessage = 'Your Auth Token has expired or is invalid (valid for 24 hours). Please update your credentials in Settings with a new token and device key.';
         isCredError = true;
       } else if (error.message === 'AUTH_DEVICE_KEY_EXPIRED') {
-        displayMessage = 'Your Device Key has expired or is invalid. Please update your credentials in Settings.';
+        displayMessage = 'Your Device Key has expired or is invalid. Please update your credentials in Settings with a new token and device key.';
         isCredError = true;
       } else if (error.message.includes('INVALID_CREDENTIALS:')) {
         displayMessage = error.message.replace('INVALID_CREDENTIALS: ', '');
@@ -476,7 +476,7 @@ export default function SeatAvailabilityScreen() {
         displayMessage = 'An unexpected error occurred. Please try again.';
       } else {
         // Match Python app.py line 380 - For any other unhandled error, show it
-        displayMessage = `An unexpected error occurred: ${error.message}`;
+        displayMessage = error.message;
       }
       
       setErrorMessage(displayMessage);

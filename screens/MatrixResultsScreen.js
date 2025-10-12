@@ -1213,17 +1213,17 @@ const MatrixResultsScreen = ({ route, navigation }) => {
                         </Text>
                       </View>
                     )}
+                    {result.type === 'MIXED_SEGMENTED' && (
+                      <Chip 
+                        mode="outlined" 
+                        compact 
+                        style={styles.segmentSeatChip}
+                        textStyle={styles.segmentSeatChipText}
+                      >
+                        {SEAT_TYPE_LABELS[segment.seatType]}
+                      </Chip>
+                    )}
                   </View>
-                  {result.type === 'MIXED_SEGMENTED' && (
-                    <Chip 
-                      mode="outlined" 
-                      compact 
-                      style={styles.segmentSeatChip}
-                      textStyle={styles.segmentSeatChipText}
-                    >
-                      {SEAT_TYPE_LABELS[segment.seatType]}
-                    </Chip>
-                  )}
                 </View>
                 {result.segments.length > 1 && (
                   <View style={styles.segmentNumber}>
@@ -1309,7 +1309,7 @@ const MatrixResultsScreen = ({ route, navigation }) => {
         <View style={styles.routeCheckerHeader}>
           <View style={styles.routeCheckerTitleContainer}>
             <View style={styles.routeCheckerTitleWrapper}>
-              <Text style={styles.routeCheckerTitle}>Check Route Availability</Text>
+              <Text style={styles.routeCheckerTitle}>Check Ticket Availability</Text>
               <Text style={styles.routeCheckerSubtitle}>
                 Find direct, segmented, or mixed ticket options
               </Text>
@@ -1524,14 +1524,14 @@ const MatrixResultsScreen = ({ route, navigation }) => {
               <Ionicons name="search" size={24} color={color} />
             )}
           >
-            {isSearching ? 'Searching Routes...' : 'Search Available Routes'}
+            {isSearching ? 'Checking Availability...' : 'Check Availability'}
           </Button>
 
           <Surface style={styles.infoContainer} elevation={0}>
             <View style={styles.infoRow}>
               <Ionicons name="information-circle" size={16} color="#006747" />
               <Text style={styles.infoText}>
-                Results are based on current matrix data. For real-time availability, generate a fresh matrix.
+                Results are based on current matrix data. For real-time availability, generate a fresh matrix or pull refresh to get the updated data.
               </Text>
             </View>
           </Surface>
@@ -1828,7 +1828,7 @@ const MatrixResultsScreen = ({ route, navigation }) => {
       
       {routeResults && routeResults.length > 0 && (
         <View ref={routeResultsRef} style={styles.routeResultsContainer}>
-          <Text style={styles.routeResultsTitle}>Available Route Options</Text>
+          <Text style={styles.routeResultsTitle}>Available Ticket Options</Text>
           {renderRouteResults()}
         </View>
       )}
@@ -2841,20 +2841,22 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   segmentSeatChip: {
-    height: 24,
     backgroundColor: 'transparent',
     borderColor: '#006747',
+    alignSelf: 'flex-start',
+    marginTop: 6,
   },
   segmentSeatChipText: {
-    fontSize: 10,
+    fontSize: 11,
     fontFamily: 'PlusJakartaSans-SemiBold',
     color: '#006747',
+    lineHeight: 16,
   },
   segmentNumber: {
     width: 24,
     height: 24,
     borderRadius: 12,
-    backgroundColor: '#006747',
+    backgroundColor: '#2196F3',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -2929,21 +2931,22 @@ const styles = StyleSheet.create({
   availabilityText: {
     marginLeft: 6,
     fontSize: 13,
-    fontFamily: 'PlusJakartaSans-Medium',
+    fontFamily: 'PlusJakartaSans-Bold',
     color: '#006747',
   },
   buyTicketButton: {
-    backgroundColor: '#E8F5F0',
-    borderRadius: 8,
+    backgroundColor: '#F0F8F5',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#006747',
   },
   buyTicketButtonText: {
-    fontSize: 12,
+    fontSize: 13,
     fontFamily: 'PlusJakartaSans-SemiBold',
     color: '#006747',
   },
   buyTicketButtonContent: {
-    paddingVertical: 2,
-    paddingHorizontal: 8,
+    paddingHorizontal: 2,
   },
   
   // Grand Total

@@ -406,10 +406,10 @@ export default function HomeScreen() {
       
       // Check for AUTH_TOKEN_EXPIRED and AUTH_DEVICE_KEY_EXPIRED first
       if (errorMessage === 'AUTH_TOKEN_EXPIRED') {
-        errorMessage = 'Your Auth Token has expired or is invalid. Please update your credentials in Settings.';
+        errorMessage = 'Your Auth Token has expired or is invalid (valid for 24 hours). Please update your credentials in Settings with a new token and device key.';
         isCredError = true;
       } else if (errorMessage === 'AUTH_DEVICE_KEY_EXPIRED') {
-        errorMessage = 'Your Device Key has expired or is invalid. Please update your credentials in Settings.';
+        errorMessage = 'Your Device Key has expired or is invalid. Please update your credentials in Settings with a new token and device key.';
         isCredError = true;
       }
       // Authentication and credential validation errors
@@ -612,10 +612,10 @@ export default function HomeScreen() {
       
       // Check for AUTH_TOKEN_EXPIRED and AUTH_DEVICE_KEY_EXPIRED first
       if (errorMessage === 'AUTH_TOKEN_EXPIRED') {
-        errorMessage = 'Your Auth Token has expired or is invalid. Please update your credentials in Settings.';
+        errorMessage = 'Your Auth Token has expired or is invalid (valid for 24 hours). Please update your credentials in Settings with a new token and device key.';
         isCredError = true;
       } else if (errorMessage === 'AUTH_DEVICE_KEY_EXPIRED') {
-        errorMessage = 'Your Device Key has expired or is invalid. Please update your credentials in Settings.';
+        errorMessage = 'Your Device Key has expired or is invalid. Please update your credentials in Settings with a new token and device key.';
         isCredError = true;
       }
       // Authentication and credential validation errors

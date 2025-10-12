@@ -580,7 +580,7 @@ export default function SeatAvailabilityResultsScreen({ route, navigation }) {
             <Text style={styles.noteText}>
               <Text style={styles.noteBold}>Note: </Text>
               Seat availability info may change frequently as this app does not dynamically fetch the seat data in real time. 
-              To get the latest info, please perform a new search. Also, the issued tickets and the reserved tickets info may not be fully accurate.
+              To get the latest info, please perform a new search or pull refresh to get the updated data. Also, the issued tickets and the reserved tickets info may not be fully accurate.
             </Text>
           </View>
 

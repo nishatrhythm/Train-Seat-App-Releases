@@ -232,9 +232,9 @@ export default function RailwayAccountScreen() {
       let errorMessage = 'Verification failed. ';
       
       if (error.message === 'AUTH_TOKEN_EXPIRED') {
-        errorMessage = 'Auth Token has expired or is invalid. Please update your Auth Token first.';
+        errorMessage = 'Auth Token has expired or is invalid (valid for 24 hours). Please update your credentials with a new token and device key.';
       } else if (error.message === 'AUTH_DEVICE_KEY_EXPIRED') {
-        errorMessage = 'Device Key has expired or is invalid. Please update your Device Key first.';
+        errorMessage = 'Device Key has expired or is invalid. Please update your credentials with a new token and device key.';
       } else if (error.message.includes('Network') || error.message.includes('connection')) {
         errorMessage = 'Unable to connect to Bangladesh Railway servers. Please check your internet connection and try again.';
       } else {
@@ -432,7 +432,11 @@ export default function RailwayAccountScreen() {
                   
                   <View style={styles.noticeTextContainer}>
                     <Text style={styles.noticeText}>
-                      When you search on the e-ticket website or the Rail Sheba app, you must be signed in with your railway credentials. Technically, this is required because the railway server checks whether you are an authorised user before allowing access to the data. Without valid credentials, no information can be fetched from the official server.
+                      To search for train tickets on the official e-ticket website or Rail Sheba app, you need to be logged in with your railway account. This is because the railway system checks if you're a registered user before showing any information. Without proper login details, the app can't access the official data.
+                    </Text>
+
+                    <Text style={styles.noticeText}>
+                      Recently, Bangladesh Railway added extra security with Cloudflare verification for logins. Because of this change, we can't automatically get your Auth Token and Device Key from just your phone number and password. You'll need to get these codes yourself from the official website, then enter them here manually.
                     </Text>
                   </View>
                 </Card.Content>

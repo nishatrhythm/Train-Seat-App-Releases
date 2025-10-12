@@ -7,14 +7,16 @@ import {
   parseDateString,
   validateCredentials
 } from './railwayAPI';
+import { getAppConfig } from './firebaseData';
 
 /**
  * Validate train schedule for the selected date
  * @param {string} journeyDateStr - Journey date in DD-MMM-YYYY format
  * @param {Array} days - Array of days when train runs
  * @param {string} trainName - Train name for error message
+ * @param {boolean} enableWeekdayValidation - Whether to validate weekday (from Firebase config)
  */
-const validateTrainSchedule = (journeyDateStr, days, trainName) => {
+const validateTrainSchedule = (journeyDateStr, days, trainName, enableWeekdayValidation = true) => {
   try {
     // Parse DD-MMM-YYYY format
     const [day, month, year] = journeyDateStr.split('-');
@@ -33,7 +35,8 @@ const validateTrainSchedule = (journeyDateStr, days, trainName) => {
     const weekdayFull = date.toLocaleDateString('en-US', { weekday: 'long' });
 
     // Comment out these two lines below as trains run every day temporarily on EID journey
-    if (!days.includes(weekdayShort)) {
+    // This can be controlled via Firebase appUpdate.enableWeekdayValidation
+    if (enableWeekdayValidation && !days.includes(weekdayShort)) {
       throw new Error(`${trainName} does not run on ${weekdayFull}.`);
     }
   } catch (error) {
@@ -246,8 +249,12 @@ export const computeMatrix = async (trainModel, journeyDateStr, apiDateFormat, o
     const routes = trainData.routes;
     const totalDuration = trainData.total_duration || 'N/A';
 
-    // Validate train schedule (enabled like reference project)
-    validateTrainSchedule(journeyDateStr, days, trainName);
+    // Fetch app configuration from Firebase
+    const appConfig = await getAppConfig();
+    const enableWeekdayValidation = appConfig.enableWeekdayValidation;
+
+    // Validate train schedule (can be controlled via Firebase config)
+    validateTrainSchedule(journeyDateStr, days, trainName, enableWeekdayValidation);
 
     // Step 3: Process route information
     if (onProgress) onProgress("Processing route information...", 6);
