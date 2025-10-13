@@ -67,7 +67,7 @@ export default function AboutScreen() {
             Train Seat
           </Text>
           <Text variant="titleMedium" style={styles.appVersion}>
-            Version 2.4.0
+            Version 2.4.2
           </Text>
         </Surface>
 

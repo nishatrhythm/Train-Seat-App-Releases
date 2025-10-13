@@ -35,6 +35,7 @@ import { computeMatrix } from '../utils/matrixCalculator';
 import { extractTrainModel, parseDateString, searchTrainsBetweenStations } from '../utils/railwayAPI';
 import { useNavigation } from '@react-navigation/native';
 import { checkForUpdate, openUpdateUrl } from '../utils/updateChecker';
+import { checkForNotice, dismissNotice } from '../utils/noticeChecker';
 import { getStations, getTrains, refreshData } from '../utils/firebaseData';
 
 const { width } = Dimensions.get('window');
@@ -130,6 +131,10 @@ export default function HomeScreen() {
   const [showUpdateDialog, setShowUpdateDialog] = useState(false);
   const [updateInfo, setUpdateInfo] = useState(null);
 
+  // Notice dialog states
+  const [showNoticeDialog, setShowNoticeDialog] = useState(false);
+  const [noticeInfo, setNoticeInfo] = useState(null);
+
   // Firebase data states
   const [trains, setTrains] = useState([]);
   const [stations, setStations] = useState([]);
@@ -213,6 +218,31 @@ export default function HomeScreen() {
     const timer = setTimeout(() => {
       checkAppUpdate();
     }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Check for app notices on mount
+  useEffect(() => {
+    const checkAppNotice = async () => {
+      try {
+        const notice = await checkForNotice();
+        if (notice.shouldShow) {
+          setNoticeInfo(notice);
+          // Show notice dialog after a delay to let update dialog show first if both are present
+          setTimeout(() => {
+            setShowNoticeDialog(true);
+          }, 500);
+        }
+      } catch (error) {
+        console.error('Error checking for notice:', error);
+      }
+    };
+
+    // Check for notice after a delay, longer than update check
+    const timer = setTimeout(() => {
+      checkAppNotice();
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -674,6 +704,13 @@ export default function HomeScreen() {
       if (update.updateAvailable) {
         setUpdateInfo(update);
         setShowUpdateDialog(true);
+      }
+
+      // Check for app notices (force check on manual refresh)
+      const notice = await checkForNotice(true);
+      if (notice.shouldShow) {
+        setNoticeInfo(notice);
+        setShowNoticeDialog(true);
       }
     } catch (error) {
       console.error('Error refreshing Firebase data:', error);
@@ -1437,6 +1474,43 @@ export default function HomeScreen() {
                 Update Now
               </Button>
             </Dialog.Actions>
+          </Dialog>
+        </Portal>
+
+        {/* Notice Dialog */}
+        <Portal>
+          <Dialog 
+            visible={showNoticeDialog} 
+            dismissable={false}
+            style={styles.noticeDialog}
+          >
+            <Dialog.Content style={styles.noticeDialogContent}>
+              <View style={styles.noticeDialogHeader}>
+                <Text style={styles.noticeDialogTitle}>
+                  {noticeInfo?.title}
+                </Text>
+              </View>
+              <Text style={styles.noticeDialogMessage}>
+                {noticeInfo?.message}
+              </Text>
+            </Dialog.Content>
+            {noticeInfo?.dismissible && (
+              <Dialog.Actions style={styles.noticeDialogActions}>
+                <Button
+                  onPress={async () => {
+                    if (noticeInfo?.version) {
+                      await dismissNotice(noticeInfo.version);
+                    }
+                    setShowNoticeDialog(false);
+                  }}
+                  mode="contained"
+                  style={styles.noticeOkButton}
+                  labelStyle={styles.noticeOkButtonLabel}
+                >
+                  {noticeInfo?.buttonText || 'OK'}
+                </Button>
+              </Dialog.Actions>
+            )}
           </Dialog>
         </Portal>
 
@@ -2337,5 +2411,54 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'PlusJakartaSans-SemiBold',
     marginHorizontal: 8,
+  },
+
+  // Notice Dialog Styles
+  noticeDialog: {
+    margin: 24,
+    borderRadius: 28,
+    backgroundColor: '#FFFFFF',
+    elevation: 3,
+  },
+  noticeDialogContent: {
+    paddingHorizontal: 24,
+    paddingTop: 24,
+    paddingBottom: 16,
+  },
+  noticeDialogHeader: {
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  noticeDialogTitle: {
+    color: '#1C1B1F',
+    fontSize: 24,
+    fontFamily: 'PlusJakartaSans-Bold',
+    textAlign: 'center',
+    lineHeight: 32,
+  },
+  noticeDialogMessage: {
+    fontSize: 14,
+    color: '#49454F',
+    fontFamily: 'PlusJakartaSans-Regular',
+    lineHeight: 20,
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  noticeDialogActions: {
+    paddingHorizontal: 24,
+    paddingBottom: 24,
+    paddingTop: 16,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  noticeOkButton: {
+    borderRadius: 20,
+    backgroundColor: '#006747',
+    minWidth: 120,
+  },
+  noticeOkButtonLabel: {
+    fontSize: 14,
+    fontFamily: 'PlusJakartaSans-SemiBold',
+    marginHorizontal: 16,
   },
 });

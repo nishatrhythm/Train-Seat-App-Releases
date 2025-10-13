@@ -53,6 +53,11 @@ export const verifyCredentials = async (authToken, deviceKey) => {
 
     const data = await response.json();
 
+    if (response.status === 429) {
+      // Handle rate limiting
+      throw new Error("You are requesting too frequently. Please wait and try after some time.");
+    }
+
     if (response.status === 401) {
       // Check which credential is invalid
       const errorMessages = data?.error?.messages || [];
@@ -120,6 +125,10 @@ export const fetchTrainData = async (model, apiDate, signal = null) => {
         signal: signal
       });
 
+      if (response.status === 429) {
+        throw new Error("You are requesting too frequently. Please wait and try after some time.");
+      }
+
       if (response.status === 403) {
         throw new Error("Rate limit exceeded. Please try again later.");
       }
@@ -183,6 +192,10 @@ export const getSeatAvailability = async (trainModel, journeyDate, fromCity, toC
         },
         signal: signal
       });
+
+      if (response.status === 429) {
+        throw new Error("You are requesting too frequently. Please wait and try after some time.");
+      }
 
       if (response.status === 401) {
         try {
@@ -566,6 +579,11 @@ const fetchTrainsForDate = async (origin, destination, dateStr, signal = null) =
         timeout: 10000
       });
 
+      // Handle rate limiting (429)
+      if (response.status === 429) {
+        throw new Error("You are requesting too frequently. Please wait and try after some time.");
+      }
+
       // Handle 401 unauthorized (invalid credentials)
       if (response.status === 401) {
         try {
@@ -588,7 +606,7 @@ const fetchTrainsForDate = async (origin, destination, dateStr, signal = null) =
         throw new Error('AUTH_TOKEN_EXPIRED'); // Default to token expired
       }
       
-      // Handle rate limiting
+      // Handle rate limiting (403)
       if (response.status === 403) {
         throw new Error("Rate limit exceeded. Please try again later.");
       }
@@ -817,6 +835,10 @@ export const fetchSeatLayout = async (tripId, tripRouteId, signal = null) => {
         },
         signal: signal
       });
+
+      if (response.status === 429) {
+        throw new Error("You are requesting too frequently. Please wait and try after some time.");
+      }
 
       if (response.status >= 500) {
         retryCount += 1;
@@ -1133,6 +1155,11 @@ export const checkSeatAvailability = async (origin, destination, date, seatClass
           },
           signal: signal
         });
+
+        // Handle rate limiting (429)
+        if (response.status === 429) {
+          throw new Error("You are requesting too frequently. Please wait and try after some time.");
+        }
 
         // Handle 401 unauthorized (invalid credentials)
         if (response.status === 401) {

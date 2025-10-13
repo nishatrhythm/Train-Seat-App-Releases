@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const STORAGE_KEYS = {
   AUTH_TOKEN: 'railway_auth_token',
   DEVICE_KEY: 'railway_device_key',
+  DISMISSED_NOTICE_VERSION: 'dismissed_notice_version',
 };
 
 export const RailwayAccountStorage = {
