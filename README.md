@@ -1,4 +1,11 @@
 <h1 align ="center">Train Seat</h1>
+<br><br>
+
+| 🚨 PROJECT DISCONTINUATION NOTICE 🚨 |
+|-------------------------------------|
+| Starting **October 14, 2025**, this project is **discontinued** and **no longer maintained**. All resources are archived now.<br><br>Thank you for your support over the long journey. Visit [trainseat.onrender.com/sunset](https://trainseat.onrender.com/sunset) to learn more about why this project was discontinued. |
+
+<br><br>
 
 <div align="center">
 
